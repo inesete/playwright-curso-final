@@ -21,8 +21,16 @@ test('test 3', async ({ page }) => {
   await page.goto('https://www.mercadolibre.com.co/');
   await page.locator("//input[@id='cb1-edit']").fill("iphone");
   await page.locator("//button[@class='nav-search-btn']").click();
+  await expect(page.locator("//ol[contains(@class,'ui-search-layout')]")).toBeVisible();
+
+  const titles = await page.locator("//ol[contains(@class,'ui-search-layout')]/li[contains(@class,'ui-search-layout__item')]/div/div/div/div/h3").allInnerTexts();
+  for(let title of titles){
+    console.log("The title is: ",title);
+  }
   await page.getByRole('link', { name: 'iPhone XR 256 Gb - Negro' }).click();
   await page.getByRole('button', { name: 'Comprar ahora' }).click();
   await expect(page.locator("//span[contains(text(),'Ingresar')]")).toBeVisible();
-  await page.screenshot({ path: "./screenshots/" + Date.now() + ".png" });
+  await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+
+
 });
