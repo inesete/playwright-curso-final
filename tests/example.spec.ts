@@ -16,3 +16,13 @@ test('get started link', async ({ page }) => {
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
 });
+
+test('test 3', async ({ page }) => {
+  await page.goto('https://www.mercadolibre.com.co/');
+  await page.locator("//input[@id='cb1-edit']").fill("iphone");
+  await page.locator("//button[@class='nav-search-btn']").click();
+  await page.getByRole('link', { name: 'iPhone XR 256 Gb - Negro' }).click();
+  await page.getByRole('button', { name: 'Comprar ahora' }).click();
+  await expect(page.locator("//span[contains(text(),'Ingresar')]")).toBeVisible();
+  await page.screenshot({ path: "./screenshots/" + Date.now() + ".png" });
+});
