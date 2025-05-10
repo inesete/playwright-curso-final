@@ -24,9 +24,10 @@ test('test 3', async ({ page }) => {
   await expect(page.locator("//ol[contains(@class,'ui-search-layout')]")).toBeVisible();
 
   const titles = await page.locator("//ol[contains(@class,'ui-search-layout')]/li[contains(@class,'ui-search-layout__item')]/div/div/div/div/h3").allInnerTexts();
-  for(let title of titles){
-    console.log("The title is: ",title);
+  for (let title of titles) {
+    console.log("The title is: ", title);
   }
+  console.log("The total number of results is: ", titles.length);
   await page.getByRole('link', { name: 'iPhone XR 256 Gb - Negro' }).click();
   await page.getByRole('button', { name: 'Comprar ahora' }).click();
   await expect(page.locator("//span[contains(text(),'Ingresar')]")).toBeVisible();
