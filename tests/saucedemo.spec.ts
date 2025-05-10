@@ -11,7 +11,7 @@ test('purchase an item', async ({ page }) => {
     await expect(page).toHaveTitle(/Swag Labs/);
     //await page.locator("//div[@class='inventory_item']").first().click();
     //Misma forma con css
-    await page.locator("#inventory_container .inventory_item").first().click();
+    //await page.locator("#inventory_container .inventory_item").first().click();
 
     const items = await page.locator("#inventory_container .inventory_item").all();
     const randomIndex = Math.floor(Math.random() * items.length)
@@ -38,5 +38,32 @@ test('purchase an item', async ({ page }) => {
     expect(cartElementPrice).toEqual(expectedPrice);
 
 
+
+
+    await page.getByRole('button', { name: 'Checkout' }).click();
+    await expect(page.getByRole('button', { name: 'Go back Cancel' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Continue' })).toBeVisible();
+    await page.locator("#first-name").fill("first name test");
+    await page.locator("#last-name").fill("last name test");
+    await page.locator("#postal-code").fill("zip code test");
+    await page.getByRole('button', { name: 'Continue' }).click();
+
+    expect(cartElementName).toEqual(expectedName);
+    expect(cartElementDescription).toEqual(expectedDescription);
+    expect(cartElementPrice).toEqual(expectedPrice);
+
     await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+
+
+    await expect(page.getByRole('button', { name: 'Finish' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Go back Cancel' })).toBeVisible();
+    await page.getByRole('button', { name: 'Finish' }).click();
+    await expect(page.getByRole('button', { name: 'Back Home' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Thank you for your order!' })).toBeVisible();
+    await expect(page.locator("//img[@class='pony_express']")).toBeVisible();
+    await page.getByRole('button', { name: 'Back Home' }).click();
+    await expect(page).toHaveTitle(/Swag Labs/);
+    await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+
+
 });
