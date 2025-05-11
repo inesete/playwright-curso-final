@@ -9,6 +9,8 @@ export class CheckoutForm extends BasePage {
     private readonly inputZipCode: Locator;
     private readonly buttonCancelPurchase: Locator;
     private readonly buttonContinuePurchase: Locator;
+    private readonly buttonCancel: Locator;
+
 
     constructor(page: Page) {
         super(page);
@@ -17,6 +19,8 @@ export class CheckoutForm extends BasePage {
         this.inputZipCode = page.locator(Locators.inputZipCode);
         this.buttonCancelPurchase = page.locator(Locators.buttonCancelPurchase);
         this.buttonContinuePurchase = page.locator(Locators.buttonContinuePurchase);
+        this.buttonCancel = page.locator(Locators.buttonCancel);
+
     }
 
     async fillPersonalData() {
@@ -26,6 +30,6 @@ export class CheckoutForm extends BasePage {
         await this.expectVisible(Locators.buttonCancelPurchase);
         await this.expectVisible(Locators.buttonContinuePurchase);
         await this.clickOn(Locators.buttonContinuePurchase);
+        await this.expectVisible(Locators.buttonCancel);
     }
-
 }

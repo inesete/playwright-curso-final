@@ -7,12 +7,14 @@ export class LoginForm extends BasePage {
     private readonly inputLogin: Locator;
     private readonly inputPassword: Locator;
     private readonly buttonLogin: Locator;
+    private readonly badgeIconPrincipalPage: Locator;
 
     constructor(page: Page) {
         super(page);
         this.inputLogin = page.locator(Locators.inputLogin);
         this.inputPassword = page.locator(Locators.inputPassword);
         this.buttonLogin = page.locator(Locators.buttonLogin);
+        this.buttonLogin = page.locator(Locators.badgeIconPrincipalPage);
     }
 
     async login() {

@@ -10,6 +10,8 @@ export class ItemsPage extends BasePage {
     private readonly itemPrice: Locator;
     private readonly badgeIcon: Locator;
     private readonly badgeIconPrincipalPage: Locator;
+    private readonly buttonContinueShopping: Locator;
+    private readonly buttonCheckout: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -19,6 +21,8 @@ export class ItemsPage extends BasePage {
         this.itemPrice = page.locator(Locators.itemPrice);
         this.badgeIcon = page.locator(Locators.badgeIcon);
         this.badgeIconPrincipalPage = page.locator(Locators.badgeIconPrincipalPage);
+        this.buttonContinueShopping = page.locator(Locators.buttonContinueShopping);
+        this.buttonCheckout = page.locator(Locators.buttonCheckout);
     }
 
     async selectRandomItem() {

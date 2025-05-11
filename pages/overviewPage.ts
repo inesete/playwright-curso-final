@@ -5,19 +5,20 @@ import { Locators } from "./locators/Locators";
 
 export class OverviewPage extends BasePage {
 
-    private readonly buttonCancel: Locator;
     private readonly buttonFinish: Locator;
     private readonly buttonBackHome: Locator;
+    private readonly headerComplete: Locator;
+    private readonly imagePony: Locator;
 
     constructor(page: Page) {
         super(page);
-        this.buttonCancel = page.locator(Locators.buttonCancel);
         this.buttonFinish = page.locator(Locators.buttonFinish);
-        this.buttonFinish = page.locator(Locators.buttonBackHome);
+        this.buttonBackHome = page.locator(Locators.buttonBackHome);
+        this.headerComplete = page.locator(Locators.headerComplete);
+        this.imagePony = page.locator(Locators.imagePony);
     }
 
     async continuePurchase() {
-        await this.expectVisible(Locators.buttonCancel);
         await this.expectVisible(Locators.buttonFinish);
         await this.clickOn(Locators.buttonFinish);
         await this.expectVisible(Locators.headerComplete);
