@@ -1,6 +1,6 @@
 import { Locator, Page } from "playwright";
-import { BasePage } from "./basePage";
-import { Locators } from "./locators/locators";
+import { BasePage } from "./BasePage";
+import { Locators } from "./locators/Locators";
 
 export class ItemsPage extends BasePage {
 
