@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
 import { BasePage } from '../pages/BasePage';
-import { CheckoutForm } from '../pages/checkoutForm';
-import { LoginForm } from '../pages/loginForm';
-import { ItemsPage } from '../pages/itemsPage';
-import { FinishPage } from '../pages/finishPage';
-import { OverviewPage } from '../pages/overviewPage';
+import { CheckoutForm } from '../pages/CheckoutForm';
+import { LoginForm } from '../pages/LoginForm';
+import { ItemsPage } from '../pages/ItemsPage';
+import { FinishPage } from '../pages/FinishPage';
+import { OverviewPage } from '../pages/OverviewPage';
 
 //test bien estructurado
 
