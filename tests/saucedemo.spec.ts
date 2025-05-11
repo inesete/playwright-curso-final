@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('purchase an item', async ({ page }) => {
+test('purchase an item', async ({ page }, testInfo) => {
     await page.goto('https://www.saucedemo.com/');
     //Funciona exactamente igual con Xpath o con getByRole
     //await page.locator('#user-name').fill("standard_user");
@@ -39,6 +39,12 @@ test('purchase an item', async ({ page }) => {
     await page.locator("#first-name").fill("first name test");
     await page.locator("#last-name").fill("last name test");
     await page.locator("#postal-code").fill("zip code test");
+
+    await testInfo.attach('login', {
+        body: await page.screenshot(),
+        contentType: 'image/png'
+    })
+
     await page.getByRole('button', { name: 'Continue' }).click();
 
     expect(cartElementName).toEqual(expectedName);
