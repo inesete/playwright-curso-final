@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { equal } from 'assert';
 
 test('purchase an item', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
@@ -16,11 +15,9 @@ test('purchase an item', async ({ page }) => {
     const items = await page.locator("#inventory_container .inventory_item").all();
     const randomIndex = Math.floor(Math.random() * items.length)
     const randomItem = items[randomIndex];
-
     const expectedName = await randomItem.locator(" .inventory_item_name").innerText();
     const expectedDescription = await randomItem.locator(" .inventory_item_desc").innerText();
     const expectedPrice = await randomItem.locator(" .inventory_item_price").innerText();
-
 
     //console.log("El elemento es: ", expectedName, " con Description: ", expectedDescription, " y precio: ", expectedPrice);
     console.log(`Price: ${expectedPrice} - Name: ${expectedName} - Description: ${expectedDescription}`);
@@ -32,13 +29,9 @@ test('purchase an item', async ({ page }) => {
     const cartElementDescription = await page.locator("#cart_contents_container .cart_list .cart_item .cart_item_label .inventory_item_desc").innerText();
     const cartElementPrice = await page.locator("#cart_contents_container .cart_list .cart_item .cart_item_label .inventory_item_price").innerText();
 
-
     expect(cartElementName).toEqual(expectedName);
     expect(cartElementDescription).toEqual(expectedDescription);
     expect(cartElementPrice).toEqual(expectedPrice);
-
-
-
 
     await page.getByRole('button', { name: 'Checkout' }).click();
     await expect(page.getByRole('button', { name: 'Go back Cancel' })).toBeVisible();
@@ -53,8 +46,6 @@ test('purchase an item', async ({ page }) => {
     expect(cartElementPrice).toEqual(expectedPrice);
 
     await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
-
-
     await expect(page.getByRole('button', { name: 'Finish' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Go back Cancel' })).toBeVisible();
     await page.getByRole('button', { name: 'Finish' }).click();
@@ -64,6 +55,4 @@ test('purchase an item', async ({ page }) => {
     await page.getByRole('button', { name: 'Back Home' }).click();
     await expect(page).toHaveTitle(/Swag Labs/);
     await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
-
-
 });
