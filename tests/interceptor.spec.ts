@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { BasePage } from '../pages/BasePage';
+import { BasePage } from '../pages/basePage';
 import { LoginForm } from '../pages/loginForm';
 
 //test bien estructurado

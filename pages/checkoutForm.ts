@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from './basePage';
 import { Locators } from './locators/Locators';
 
 export class CheckoutForm extends BasePage {

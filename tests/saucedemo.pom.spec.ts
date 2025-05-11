@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { BasePage } from '../pages/BasePage';
+import { BasePage } from '../pages/basePage';
 import { CheckoutForm } from '../pages/checkoutForm';
 import { LoginForm } from '../pages/loginForm';
 import { ItemsPage } from '../pages/itemsPage';
