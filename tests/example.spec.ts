@@ -34,5 +34,5 @@ test('test 3', async ({ page }) => {
   await page.getByRole('link', { name: 'iPhone XR 256 Gb - Negro' }).click();
   await page.getByRole('button', { name: 'Comprar ahora' }).click();
   await expect(page.locator("//span[@class='andes-button__content'][contains(text(),'Crear cuenta')]")).toBeVisible();
-  await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+  //await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
 });

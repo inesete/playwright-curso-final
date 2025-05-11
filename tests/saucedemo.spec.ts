@@ -45,7 +45,7 @@ test('purchase an item', async ({ page }) => {
     expect(cartElementDescription).toEqual(expectedDescription);
     expect(cartElementPrice).toEqual(expectedPrice);
 
-    await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+    //await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
     await expect(page.getByRole('button', { name: 'Finish' })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Go back Cancel' })).toBeVisible();
     await page.getByRole('button', { name: 'Finish' }).click();
@@ -54,5 +54,5 @@ test('purchase an item', async ({ page }) => {
     await expect(page.locator("//img[@class='pony_express']")).toBeVisible();
     await page.getByRole('button', { name: 'Back Home' }).click();
     await expect(page).toHaveTitle(/Swag Labs/);
-    await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
+    //await page.screenshot({ path: "./captures/" + Date.now() + ".png" });
 });
