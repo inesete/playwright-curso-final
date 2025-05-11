@@ -30,7 +30,7 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     headless: true,
-    //screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure'
     //screenshot: 'on', etc
   },
   projects: [
