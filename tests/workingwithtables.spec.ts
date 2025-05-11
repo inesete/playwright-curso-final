@@ -66,7 +66,9 @@ test('test web table', async ({ page }) => {
 
     }
     //y los imprimo, ya estan MAPEADOS
-    //console.log(countries);
+    
+    console.log(countries);
+    
     const countryPortuguese = countries
         .filter(country => country.primaryLanguage === 'Portuguese');
 
