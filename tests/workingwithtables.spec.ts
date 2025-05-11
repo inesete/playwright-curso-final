@@ -61,15 +61,15 @@ test('test web table', async ({ page }) => {
             currency: await row.locator("//td[4]").innerText(),
             primaryLanguage: await row.locator("//td[5]").innerText(),
         }
-
-
         //y lo relleno con todos los paises
         countries.push(country);
 
-
-        //y los imprimo, ya estan MAPEADOS
     }
-    console.log(countries);
+    //y los imprimo, ya estan MAPEADOS
+    //console.log(countries);
+    const countryPortuguese = countries
+        .filter(country => country.primaryLanguage === 'Portuguese');
 
+    console.log("Paises donde se habla portugues: ", countryPortuguese);
 
 });
