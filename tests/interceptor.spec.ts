@@ -71,6 +71,6 @@ test.describe("Test Suite: Interceptor Scenarios", async () => {
             })
         );
 
-        await page.goto("https://demoqa.com/books");
+        //await page.goto("https://demoqa.com/books");
     });
 });

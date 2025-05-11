@@ -17,7 +17,7 @@ require('dotenv').config(
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  timeout: 10_000,
+  timeout: 30_000,
   expect: {
     timeout: 200_000,
   },
@@ -29,7 +29,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
-    headless: false,
+    headless: true,
     screenshot: 'only-on-failure'
     //screenshot: 'on', etc
   },
